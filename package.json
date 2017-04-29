@@ -1,0 +1,18 @@
+{
+  "name": "Express-Redis-Socket.IO",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "$(yarn bin)/nodemon src/app.js"
+  },
+  "repository": "https://github.com/chiehwen/Express-Redis-Socket.IO.git",
+  "author": "Chieh-Wen Yang <chuck.yang@hackathon.tw> (http://chiehwenyang.logdown.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.2",
+    "nodemon": "^1.11.0",
+    "redis": "^2.7.1",
+    "socket.io": "^1.7.3",
+    "socket.io-redis": "^4.0.0"
+  }
+}

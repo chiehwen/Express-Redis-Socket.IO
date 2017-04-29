@@ -25,6 +25,8 @@ Confirm Password:
 }
 
 # Create a resource group
+$ az group create --name Test-ResourceGroup-JapanEast --location japaneast
+$ az group create --name Test-ResourceGroup-WestUS --location westus
 $ az group create --name TestResourceGroup --location EastAsia
 {
   "id": "/subscriptions/32376087-83f9-4298-8ab7-427e1ca359a7/resourceGroups/TestResourceGroup",
@@ -38,7 +40,8 @@ $ az group create --name TestResourceGroup --location EastAsia
 }
 
 # Create an Azure App Service
-$ az appservice plan create --name FreePlan --resource-group TestResourceGroup --sku FREE
+$ az appservice plan create --name B1Plan --resource-group Test-ResourceGroup-WestUS --sku B1 --is-linux
+$ az appservice plan create --name FreePlan --resource-group Test-ResourceGroup-JapanEast --sku F1
 {
   "adminSiteName": null,
   "appServicePlanName": "FreePlan",
@@ -74,7 +77,7 @@ $ az appservice plan create --name FreePlan --resource-group TestResourceGroup -
 }
 
 # Create a web app
-$ az appservice web create --name socketIOApp --resource-group TestResourceGroup --plan FreePlan
+$ az appservice web create --name socketIOApp --resource-group Test-ResourceGroup-WestUS --plan B1Plan
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -139,7 +142,7 @@ $ az appservice web create --name socketIOApp --resource-group TestResourceGroup
 }
 
 # Configure to use Node.js
-$ az appservice web config update --linux-fx-version "NODE|7.9.0" --startup-file process.json --name socketIOApp --resource-group TestResourceGroup
+$ az appservice web config update --linux-fx-version "NODE|7.9.0" --startup-file process.json --name socketIOApp --resource-group Test-ResourceGroup-WestUS
     "triggers": null
   },
   "autoSwapSlotName": null,
